@@ -1,25 +1,94 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import "@/styles/global.css";
+import { Image } from "astro:assets";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { cn } from "@/lib/utils";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Julius's Home Dashboard</title>
+  </head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
+  <body class="dark relative">
+    <div
+      class={cn(
+        "absolute inset-0 z-0",
+        "[background-size:20px_20px]",
+        "[background-image:radial-gradient(#d4d4d4_1px,transparent_1px)]",
+        "dark:[background-image:radial-gradient(#171717_1px,transparent_1px)]"
+      )}
+    >
+    </div>
+
+    <div
+      class="flex relative flex-col place-items-center md:h-dvh content-center space-y-8 z-10"
+    >
+      <div class="py-6">
+        <Image
+          src="/images/sokomoto.svg"
+          alt="Plex logo"
+          width={1000}
+          height={1000}
+          class="w-32"
+          loading={"eager"}
+        />
+      </div>
+
+      <div class="flex h-full items-center px-8">
+        <div class="flex flex-col gap-8 items-center">
+          <div class="grid lg:grid-cols-2 gap-8 w-full">
+            <ButtonLink href="https://movies.juliuszlioba.com/">
+              <Image
+                src="/images/movieNight_logo.svg"
+                alt="moviesNight logo"
+                width={255}
+                height={255}
+                class="w-32 mx-auto"
+                loading={"eager"}
+              />
+            </ButtonLink>
+            <ButtonLink href="http://192.168.1.139:32400/">
+              <Image
+                src="/images/plex-new-transparent_logo.svg"
+                alt="Plex logo"
+                width={1000}
+                height={1000}
+                class="w-32"
+                loading={"eager"}
+              />
+            </ButtonLink>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch w-full">
+            <ButtonLink href="https://www.livechart.me/schedule">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="livechart-logo"
+                viewBox="0 0 200 30"
+                width="140px"
+                height="20px"
+                ><path
+                  d="M0 0h8v26h10v4H0zM21 8h6v22h-6zM40.603 30h-2.53L30 8h6.674l4.36 12.48L45.501 8H49zM52 30V8h14v3h-8v6h6v3h-6v7h8v3zM82.41 3c-2.27.08-4.345 1.577-4.41 3.682v15.89c.29 2.922 2.202 4.412 4.41 4.428 1.256 0 3.085-.353 3.9-1.088.85-.734 1.445-1.741 1.785-3.021l2.905.391C90.354 27.761 87.058 30 81.112 30 73.704 30 70 27.488 70 22.464V8.246c0-2.748.934-4.81 2.803-6.184C74.673.687 77.595 0 81.57 0c2.413 0 4.265.38 5.556 1.137 1.291.735 2.209 1.754 2.753 3.057l-3.16 1.031c-.306-.592-.765-1.09-1.377-1.493C84.765 3.306 83.7 3 82.41 3zM94 8h6v9h5V8h6v22h-6V20h-5v10h-6zM122.451 8L114 30h3.498l1.453-4.03h5.975l1.453 4.03H133l-8.074-22zm-.484 9.52l1.912 5.48h-3.873zM142.05 17.627h1.25q2.086 0 2.92-.891.835-.892.835-3.067 0-1.996-.834-2.674-.835-.713-2.92-.713h-1.252zm4.9 5.206q0-.856-.156-1.426t-.573-.892q-.365-.356-1.095-.499-.73-.142-1.825-.142h-1.252V30H136V8h7.196q4.746 0 7.249 1.284 2.503 1.283 2.503 4.278 0 2.39-1.512 3.566-1.46 1.141-4.694 1.676 3.025.285 4.641 1.462Q153 21.406 153 23.76V30h-6.05zM155 8v3h5v12.008A5 5 0 01163 22a5 5 0 013 1.008V11h5V8z"
+                  fill="#fff"
+                  class="foreground"></path><path
+                  d="M181.235 21.857q.604-.907 1.43-1.377.834-.48 1.829-.48 1.713 0 2.61 1.037.897 1.038.897 3.017V30h-3.197v-5.092q.008-.113.008-.235.01-.122.01-.349 0-1.037-.311-1.5-.311-.47-1.004-.47-.905 0-1.403.732-.488.733-.506 2.119V30h-3.196v-5.092q0-1.621-.284-2.083-.284-.471-1.013-.471-.914 0-1.411.741-.498.732-.498 2.101V30H172v-9.765h3.196v1.43q.586-.828 1.341-1.247.764-.418 1.678-.418 1.03 0 1.82.488t1.2 1.369zM200 24.966v.867h-6.963q.108 1.072.757 1.607.649.536 1.813.536.94 0 1.922-.28.99-.29 2.03-.868v2.347q-1.057.408-2.113.612-1.057.213-2.113.213-2.53 0-3.935-1.31Q190 27.372 190 25q0-2.33 1.373-3.665Q192.753 20 195.166 20q2.197 0 3.511 1.352Q200 22.704 200 24.966zm-3.062-1.012q0-.867-.499-1.394-.49-.536-1.29-.536-.864 0-1.405.502-.541.493-.674 1.428z"
+                  fill="#3b97fc"></path><path
+                  d="M166 27a3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3 3 3 0 013 3z"
+                  fill="#3b97fc"></path></svg
+              >
+            </ButtonLink>
+            <ButtonLink href="https://subsplease.org/"> SubsPlease </ButtonLink>
+            <ButtonLink href="https://www.erai-raws.info/"> Erai-Raws </ButtonLink>
+            <ButtonLink href="https://nyaa.si/?f=0&c=1_2&q="> Nyaa </ButtonLink>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-neutral-700 py-6 text-sm">version 2.0.0</div>
+    </div>
+  </body>
 </html>
