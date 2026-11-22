@@ -4,14 +4,12 @@ A personal start page for my home network. It's a small static site, served on t
 
 ![Homecloud Dashboard screenshot](docs/screenshot.png)
 
-> **Note:** This is a personal project made for my own local network. Some links point to private LAN addresses (for example `http://192.168.1.139:32400/` for Plex), so they won't work outside that network.
-
 ## Links on the dashboard
 
 | Tile         | Destination                                   | Type                |
 | ------------ | --------------------------------------------- | ------------------- |
 | movieNight   | `https://movies.juliuszlioba.com/`            | Personal web app    |
-| Plex         | `http://192.168.1.139:32400/`                 | Local media server  |
+| Plex         | `https://app.plex.tv/`                        | Media server        |
 | LiveChart.me | `https://www.livechart.me/schedule`           | Anime schedule      |
 | SubsPlease   | `https://subsplease.org/`                     | Release tracker     |
 | Nyaa         | `https://nyaa.si/?f=0&c=1_2&q=`               | Release index       |

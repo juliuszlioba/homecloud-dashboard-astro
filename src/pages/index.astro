@@ -9,8 +9,8 @@ import livechartShot from "@/assets/screenshots/www.livechart.me.jpg";
 import subspleaseShot from "@/assets/screenshots/subsplease.org.jpg";
 import nyaaShot from "@/assets/screenshots/nyaa.si.jpg";
 
-const topSizes = "(min-width: 1024px) 512px, calc(100vw - 4rem)";
-const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3rem), calc(100vw - 4rem)";
+const topSizes = "(min-width: 1024px) 512px, (min-width: 640px) calc(50vw - 3rem), calc(100vw - 2rem)";
+const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(33vw - 2.5rem), calc(100vw - 2rem)";
 ---
 
 <MainLayout title="Julius's Home Dashboard" bodyClass="dark relative">
@@ -25,22 +25,22 @@ const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3
     </div>
 
     <div
-      class="relative z-10 flex flex-col items-center gap-4 lg:h-dvh lg:min-h-[560px]"
+      class="relative z-10 flex h-dvh min-h-[560px] flex-col items-center gap-3 sm:gap-4"
     >
-      <div class="pt-6 lg:pt-3">
+      <div class="pt-3">
         <Image
           src="/images/sokomoto.svg"
           alt="Sokomoto logo"
           width={1000}
           height={1000}
-          class="w-24 lg:w-16"
+          class="w-12 sm:w-16"
           loading={"eager"}
         />
       </div>
 
-      <div class="flex w-full max-w-5xl px-8 lg:min-h-0 lg:flex-1">
-        <div class="grid w-full gap-6 lg:min-h-0 lg:grid-rows-[3fr_2fr]">
-          <div class="grid w-full gap-6 lg:min-h-0 lg:grid-cols-2">
+      <div class="flex min-h-0 w-full max-w-5xl flex-1 px-4 sm:px-8">
+        <div class="grid min-h-0 w-full grid-rows-[2fr_3fr] gap-3 sm:grid-rows-[3fr_2fr] sm:gap-6">
+          <div class="grid min-h-0 w-full grid-rows-2 gap-3 sm:grid-cols-2 sm:grid-rows-1 sm:gap-6">
             <ButtonLink href="https://movies.juliuszlioba.com/" screenshot={moviesShot} sizes={topSizes}>
               <Image
                 src="/images/movieNight_logo.svg"
@@ -51,7 +51,7 @@ const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3
                 loading={"eager"}
               />
             </ButtonLink>
-            <ButtonLink href="http://192.168.1.139:32400/" screenshot={plexShot} sizes={topSizes}>
+            <ButtonLink href="https://app.plex.tv/" screenshot={plexShot} sizes={topSizes}>
               <Image
                 src="/images/plex-new-transparent_logo.svg"
                 alt="Plex logo"
@@ -62,7 +62,7 @@ const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3
               />
             </ButtonLink>
           </div>
-          <div class="grid w-full gap-6 sm:grid-cols-2 lg:min-h-0 lg:grid-cols-3">
+          <div class="grid min-h-0 w-full grid-rows-3 gap-3 sm:grid-cols-3 sm:grid-rows-1 sm:gap-6">
             <ButtonLink href="https://www.livechart.me/schedule" screenshot={livechartShot} sizes={bottomSizes}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +86,8 @@ const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3
         </div>
       </div>
 
-      <div class="flex flex-col items-center gap-1 pb-6 text-sm text-neutral-700 lg:pb-3">
-        <div>version 2.1.0</div>
+      <div class="flex flex-col items-center gap-1 pb-3 text-sm text-neutral-700">
+        <div>version 2.2.0</div>
       </div>
     </div>
 </MainLayout>
