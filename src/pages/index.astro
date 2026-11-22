@@ -1,20 +1,11 @@
 ---
-import "@/styles/global.css";
+import MainLayout from "@/layouts/main.astro";
 import { Image } from "astro:assets";
 import ButtonLink from "@/components/ButtonLink.astro";
 import { cn } from "@/lib/utils";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Julius's Home Dashboard</title>
-  </head>
-
-  <body class="dark relative">
+<MainLayout title="Julius's Home Dashboard" bodyClass="dark relative">
     <div
       class={cn(
         "absolute inset-0 z-0",
@@ -31,7 +22,7 @@ import { cn } from "@/lib/utils";
       <div class="py-6">
         <Image
           src="/images/sokomoto.svg"
-          alt="Plex logo"
+          alt="Sokomoto logo"
           width={1000}
           height={1000}
           class="w-32"
@@ -90,5 +81,4 @@ import { cn } from "@/lib/utils";
 
       <div class="text-neutral-700 py-6 text-sm">version 2.0.0</div>
     </div>
-  </body>
-</html>
+</MainLayout>
