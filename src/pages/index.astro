@@ -3,6 +3,14 @@ import MainLayout from "@/layouts/main.astro";
 import { Image } from "astro:assets";
 import ButtonLink from "@/components/ButtonLink.astro";
 import { cn } from "@/lib/utils";
+import moviesShot from "@/assets/screenshots/movies.juliuszlioba.com.jpg";
+import plexShot from "@/assets/screenshots/plex.tv.jpg";
+import livechartShot from "@/assets/screenshots/www.livechart.me.jpg";
+import subspleaseShot from "@/assets/screenshots/subsplease.org.jpg";
+import nyaaShot from "@/assets/screenshots/nyaa.si.jpg";
+
+const topSizes = "(min-width: 1024px) 512px, calc(100vw - 4rem)";
+const bottomSizes = "(min-width: 1024px) 336px, (min-width: 640px) calc(50vw - 3rem), calc(100vw - 4rem)";
 ---
 
 <MainLayout title="Julius's Home Dashboard" bodyClass="dark relative">
@@ -17,45 +25,45 @@ import { cn } from "@/lib/utils";
     </div>
 
     <div
-      class="flex relative flex-col place-items-center md:h-dvh content-center space-y-8 z-10"
+      class="relative z-10 flex flex-col items-center gap-4 lg:h-dvh lg:min-h-[560px]"
     >
-      <div class="py-6">
+      <div class="pt-6 lg:pt-3">
         <Image
           src="/images/sokomoto.svg"
           alt="Sokomoto logo"
           width={1000}
           height={1000}
-          class="w-32"
+          class="w-24 lg:w-16"
           loading={"eager"}
         />
       </div>
 
-      <div class="flex h-full items-center px-8">
-        <div class="flex flex-col gap-8 items-center">
-          <div class="grid lg:grid-cols-2 gap-8 w-full">
-            <ButtonLink href="https://movies.juliuszlioba.com/">
+      <div class="flex w-full max-w-5xl px-8 lg:min-h-0 lg:flex-1">
+        <div class="grid w-full gap-6 lg:min-h-0 lg:grid-rows-[3fr_2fr]">
+          <div class="grid w-full gap-6 lg:min-h-0 lg:grid-cols-2">
+            <ButtonLink href="https://movies.juliuszlioba.com/" screenshot={moviesShot} sizes={topSizes}>
               <Image
                 src="/images/movieNight_logo.svg"
                 alt="moviesNight logo"
                 width={255}
                 height={255}
-                class="w-32 mx-auto"
+                class="w-24 mx-auto"
                 loading={"eager"}
               />
             </ButtonLink>
-            <ButtonLink href="http://192.168.1.139:32400/">
+            <ButtonLink href="http://192.168.1.139:32400/" screenshot={plexShot} sizes={topSizes}>
               <Image
                 src="/images/plex-new-transparent_logo.svg"
                 alt="Plex logo"
                 width={1000}
                 height={1000}
-                class="w-32"
+                class="w-24"
                 loading={"eager"}
               />
             </ButtonLink>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch w-full">
-            <ButtonLink href="https://www.livechart.me/schedule">
+          <div class="grid w-full gap-6 sm:grid-cols-2 lg:min-h-0 lg:grid-cols-3">
+            <ButtonLink href="https://www.livechart.me/schedule" screenshot={livechartShot} sizes={bottomSizes}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 id="livechart-logo"
@@ -72,13 +80,14 @@ import { cn } from "@/lib/utils";
                   fill="#3b97fc"></path></svg
               >
             </ButtonLink>
-            <ButtonLink href="https://subsplease.org/"> SubsPlease </ButtonLink>
-            <ButtonLink href="https://www.erai-raws.info/"> Erai-Raws </ButtonLink>
-            <ButtonLink href="https://nyaa.si/?f=0&c=1_2&q="> Nyaa </ButtonLink>
+            <ButtonLink href="https://subsplease.org/" screenshot={subspleaseShot} sizes={bottomSizes}> SubsPlease </ButtonLink>
+            <ButtonLink href="https://nyaa.si/?f=0&c=1_2&q=" screenshot={nyaaShot} sizes={bottomSizes}> Nyaa </ButtonLink>
           </div>
         </div>
       </div>
 
-      <div class="text-neutral-700 py-6 text-sm">version 2.0.0</div>
+      <div class="flex flex-col items-center gap-1 pb-6 text-sm text-neutral-700 lg:pb-3">
+        <div>version 2.1.0</div>
+      </div>
     </div>
 </MainLayout>

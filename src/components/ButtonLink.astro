@@ -1,16 +1,46 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { cn } from "@/lib/utils";
+
 type Props = {
   href: string;
+  screenshot?: ImageMetadata;
+  /** `sizes` attribute for the responsive screenshot */
+  sizes?: string;
 };
 
-const { href } = Astro.props;
+const { href, screenshot, sizes = "(min-width: 1024px) 33vw, 100vw" } = Astro.props;
 ---
 
 <a
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="appearance-none flex w-full items-center outline outline-offset-6 outline-white/10 justify-center border hover:border-purple-700 py-6 px-8 bg-neutral-900 text-white font-semibold rounded-md shadow-md focus-visible:ring-2 focus-visible:ring-purple-400/75"
+  class={cn(
+    "group relative flex w-full min-h-0 flex-col justify-end overflow-hidden rounded-md border border-neutral-800 bg-neutral-900 font-semibold text-white shadow-md outline outline-offset-6 outline-white/10 transition-colors hover:border-purple-700 focus-visible:ring-2 focus-visible:ring-purple-400/75",
+    // Mobile: natural screenshot ratio. Desktop: fill the grid cell so the page fits one screen.
+    screenshot && "aspect-[16/10] lg:aspect-auto lg:h-full"
+  )}
 >
-  <slot />
+  {
+    screenshot && (
+      <>
+        <Image
+          src={screenshot}
+          alt=""
+          widths={[400, 800, 1200, 1600]}
+          sizes={sizes}
+          format="webp"
+          quality={75}
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover object-top opacity-60 transition duration-300 group-hover:scale-105 group-hover:opacity-90"
+        />
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
+      </>
+    )
+  }
+  <div class="relative flex items-center justify-center px-6 py-4">
+    <slot />
+  </div>
 </a>
